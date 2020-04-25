@@ -1,6 +1,5 @@
 package com.glocal.gmap.bid.dto;
 
-import com.glocal.gmap.bid.domain.Tenant;
 import java.math.BigInteger;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +14,7 @@ public class BidDto {
 
   private BigInteger id;
 
-  private Tenant tenant;
+  private TenantDto tenant;
 
   private String bidstatus;
 }

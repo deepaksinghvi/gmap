@@ -13,10 +13,10 @@ import org.springframework.stereotype.Repository;
 public interface BidRepository extends JpaRepository<Bid, Long>,
     PagingAndSortingRepository<Bid, Long> {
 
-  @Query("select b from bid b where b.bidstatus=:status")
-  Page<Bid> findByUser(@Param("status") String status, Pageable pageReq);
+  /*@Query("select b from bid b where b.bidstatus=:status")
+  Page<Bid> findByStatus(@Param("status") String status, Pageable pageReq);
   default Page<Bid> findByStatus(Bid bid, Pageable pageReq) {
-    return findByUser(bid.getBidstatus(), pageReq);
-  }
+    return findByStatus(bid.getBidstatus(), pageReq);
+  }*/
 
 }
