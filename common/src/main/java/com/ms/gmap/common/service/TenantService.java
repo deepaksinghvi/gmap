@@ -1,4 +1,4 @@
-package com.ms.gmap.bid.service;
+package com.ms.gmap.common.service;
 
 import com.ms.gmap.common.domain.Tenant;
 

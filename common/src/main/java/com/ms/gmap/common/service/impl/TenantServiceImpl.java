@@ -1,8 +1,8 @@
-package com.ms.gmap.bid.service.impl;
+package com.ms.gmap.common.service.impl;
 
-import com.ms.gmap.bid.service.TenantService;
 import com.ms.gmap.common.domain.Tenant;
 import com.ms.gmap.common.repository.TenantRepository;
+import com.ms.gmap.common.service.TenantService;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -2,6 +2,7 @@ package com.ms.gmap.user.api;
 
 import com.ms.gmap.common.domain.Tenant;
 import com.ms.gmap.common.dto.TenantDto;
+import com.ms.gmap.common.service.TenantService;
 import com.ms.gmap.user.domain.User;
 import com.ms.gmap.user.dto.UserDTO;
 import com.ms.gmap.user.service.UserService;
@@ -34,6 +35,10 @@ public class UserController {
 
   @Autowired
   private UserService userService;
+
+  @Autowired
+  private TenantService tenantService;
+
 
   @Value("${gmap.bidservice.url}")
   private String bidServiceUrl;
@@ -71,6 +76,10 @@ public class UserController {
   @GetMapping("/user/tenant/{tenantId}")
   public @ResponseBody
   ResponseEntity<TenantDto> getTenant(@PathVariable("tenantId") String tenantId) {
+    // to check the injection of tenantService is working or not
+    Tenant tenant = tenantService.getTenant(1l);
+    log.info("tenant" + tenant);
+    // cross service api call
     return restTemplate.
         getForEntity(bidServiceUrl + "/tenant/" + tenantId, TenantDto.class);
   }

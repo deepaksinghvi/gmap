@@ -11,7 +11,7 @@
 
   <groupId>com.ms</groupId>
   <artifactId>common</artifactId>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <dependencies>
   <dependency>
     <groupId>org.springframework.boot</groupId>
