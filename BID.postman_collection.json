@@ -1,0 +1,307 @@
+{
+	"variables": [],
+	"info": {
+		"name": "BID",
+		"_postman_id": "80b417b4-f1a6-6f08-0ee7-889c4d70325c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bid Creation",
+			"request": {
+				"url": "http://localhost:8081/bidservice/bid",
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"bidstatus\": \"new\", \"bidname\":\"bid1\",\"tenant\": { \"id\": 1, \"locked\": false, \"organizationName\": \"Org1\", \"realm\": \"realm1\", \"tenantConfig\": \"\", \"tenantId\": \"tenant1\" }}"
+				},
+				"description": "Bid Creation"
+			},
+			"response": [
+				{
+					"id": "92a35852-0ad1-4946-b7b0-9304fd961207",
+					"name": "Bid Creation",
+					"originalRequest": {
+						"url": "http://localhost:8080/bidservice/bid",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*",
+								"disabled": false,
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false,
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"bidstatus\": \"new\",  \"tenant\": {\n    \"id\": 1,\n    \"tenantId\": \"tenant1\",\n    \"organizationName\": \"Org1\",\n    \"realm\": \"realm1\",\n    \"tenantConfig\": \"\",\n    \"locked\": false\n}}"
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 May 2020 06:24:09 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (IST)",
+							"httpOnly": true,
+							"domain": "localhost",
+							"path": "/",
+							"secure": false,
+							"value": "E814CFA5034F09DE49E04F700C11565D",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": 3219,
+					"body": "{\"id\":1,\"tenant\":{\"id\":1,\"tenantId\":\"tenant1\",\"organizationName\":\"Org1\",\"realm\":\"realm1\",\"tenantConfig\":\"\",\"locked\":false},\"bidstatus\":\"new\"}"
+				}
+			]
+		},
+		{
+			"name": "Teanant Creation",
+			"request": {
+				"url": "http://localhost:8081/bidservice/tenant",
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache",
+						"description": ""
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "postman-token",
+						"value": "cda3f7ee-d457-09e4-6110-413a87820a07",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"locked\": false, \"organizationName\": \"Org1\", \"realm\": \"realm1\", \"tenantConfig\": \"\", \"tenantId\": \"tenant1\" }"
+				},
+				"description": "Teanant Creation"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Bid",
+			"request": {
+				"url": "http://localhost:8080/bidservice/bid",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache",
+						"description": ""
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "postman-token",
+						"value": "7d6a96a6-6bc2-1432-360a-eae7ca86435c",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"bidstatus\": \"test\", \n    \"id\": 1\n}"
+				},
+				"description": "Update Bid"
+			},
+			"response": [
+				{
+					"id": "c60970fa-e7f6-4eaa-a0a1-f79ebfaa10ac",
+					"name": "Update Bid",
+					"originalRequest": {
+						"url": "http://localhost:8080/bidservice/bid",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*",
+								"description": ""
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache",
+								"description": ""
+							},
+							{
+								"key": "content-type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "postman-token",
+								"value": "7d6a96a6-6bc2-1432-360a-eae7ca86435c",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"bidstatus\": \"test\", \n    \"id\": 1\n}"
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 May 2020 06:39:21 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (IST)",
+							"httpOnly": true,
+							"domain": "localhost",
+							"path": "/",
+							"secure": false,
+							"value": "E814CFA5034F09DE49E04F700C11565D",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": 3629,
+					"body": "{\"id\":1,\"tenant\":{\"id\":1,\"tenantId\":\"tenant1\",\"organizationName\":\"Org1\",\"realm\":\"realm1\",\"tenantConfig\":\"\",\"locked\":false},\"bidstatus\":\"test\"}"
+				}
+			]
+		},
+		{
+			"name": "Retrive Tenant",
+			"request": {
+				"url": "http://localhost:8080/userservice/user/tenant/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Retrive Tenant"
+			},
+			"response": [
+				{
+					"id": "3c1213fb-f8bd-44b8-a3b8-83cee2c1963d",
+					"name": "Retrive Tenant",
+					"originalRequest": {
+						"url": "http://localhost:8080/userservice/user/tenant/1",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 May 2020 19:42:41 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 May 2020 19:42:41 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (IST)",
+							"httpOnly": true,
+							"domain": "localhost",
+							"path": "/",
+							"secure": false,
+							"value": "E814CFA5034F09DE49E04F700C11565D",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": 244,
+					"body": "{\"id\":1,\"tenantId\":\"tenant1\",\"organizationName\":\"Org1\",\"realm\":\"realm1\",\"tenantConfig\":\"\",\"locked\":false}"
+				}
+			]
+		}
+	]
+}
