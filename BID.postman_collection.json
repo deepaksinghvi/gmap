@@ -32,7 +32,7 @@
 			},
 			"response": [
 				{
-					"id": "92a35852-0ad1-4946-b7b0-9304fd961207",
+					"id": "a2eb50a5-367a-4cce-892d-64865250be4d",
 					"name": "Bid Creation",
 					"originalRequest": {
 						"url": "http://localhost:8080/bidservice/bid",
@@ -166,7 +166,7 @@
 			},
 			"response": [
 				{
-					"id": "c60970fa-e7f6-4eaa-a0a1-f79ebfaa10ac",
+					"id": "98ec565e-cad2-4b13-a853-41ce5c7862a0",
 					"name": "Update Bid",
 					"originalRequest": {
 						"url": "http://localhost:8080/bidservice/bid",
@@ -249,7 +249,7 @@
 			},
 			"response": [
 				{
-					"id": "3c1213fb-f8bd-44b8-a3b8-83cee2c1963d",
+					"id": "6229b80e-1a47-4aea-ae2c-e5f970061c48",
 					"name": "Retrive Tenant",
 					"originalRequest": {
 						"url": "http://localhost:8080/userservice/user/tenant/1",
@@ -300,6 +300,65 @@
 					],
 					"responseTime": 244,
 					"body": "{\"id\":1,\"tenantId\":\"tenant1\",\"organizationName\":\"Org1\",\"realm\":\"realm1\",\"tenantConfig\":\"\",\"locked\":false}"
+				}
+			]
+		},
+		{
+			"name": "Retrive Bid",
+			"request": {
+				"url": "http://localhost:8081/bidservice/bid/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Retrive Bid"
+			},
+			"response": [
+				{
+					"id": "f1412e6d-78b0-4393-877c-71d64c9721e2",
+					"name": "Retrive Bid",
+					"originalRequest": {
+						"url": "http://localhost:8081/bidservice/bid/1",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 10 May 2020 05:18:45 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (IST)",
+							"httpOnly": true,
+							"domain": "localhost",
+							"path": "/",
+							"secure": false,
+							"value": "E814CFA5034F09DE49E04F700C11565D",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": 121,
+					"body": "{\"id\":1,\"tenant\":{\"id\":1,\"tenantId\":\"tenant1\",\"organizationName\":\"Org1\",\"realm\":\"realm1\",\"tenantConfig\":\"\",\"locked\":false},\"bidstatus\":\"won1\",\"bidname\":\"bid1\",\"bidwinner\":\"Deepak\"}"
 				}
 			]
 		}
