@@ -45,7 +45,7 @@ public class BidServiceController {
     bid.setBidstatus(bidDto.getBidstatus());
     bid.setBidwinner(bidDto.getBidwinner());
     bid = bidService.updateBid(bid);
-    return new ResponseEntity(convertToDto(bid), HttpStatus.CREATED);
+    return new ResponseEntity(convertToDto(bid), HttpStatus.OK);
   }
 
 
