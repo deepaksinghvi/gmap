@@ -19,7 +19,7 @@ mvn spring-boot:run
 ```
 
 Use BID.postman_collection.json for trying out various request.
-a) Teanant Creation (bidservice)
-b) Bid Creation (bidservice)
-c) Update Bid (bidservice)
-d) Retrive Tenant (userservice)
+1. Teanant Creation (bidservice)
+2. Bid Creation (bidservice)
+3. Update Bid (bidservice)
+4. Retrive Tenant (userservice)
