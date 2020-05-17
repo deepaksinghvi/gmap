@@ -1,0 +1,70 @@
+gmap:
+    bidservice:
+        url: http://localhost:8081/bidservice
+logging:
+    level:
+        org:
+            springframework:
+                web:
+                    filter:
+                        CommonsRequestLoggingFilter: DEBUG
+server:
+    port: 8080
+    servlet:
+        context-path: /userservice
+spring:
+    datasource:
+        driverClassName: org.h2.Driver
+        password: ''
+        url: jdbc:h2:mem:localdb
+        username: sa
+    flyway:
+        baselineOnMigrate: true
+        enabled: true
+        locations: classpath:db/migration/{vendor}
+    h2:
+        console:
+            enabled: true
+            path: /h2-console
+    jpa:
+        hibernate:
+            ddl-auto: validate
+        properties:
+            hibernate:
+                default_schema: PUBLIC
+                dialect: org.hibernate.dialect.H2Dialect
+                jdbc:
+                    batch_size: 10
+                    lob:
+                        non_contextual_creation: true
+                order_inserts: true
+        show-sql: true
+
+management.health.circuitbreakers.enabled: true
+
+resilience4j:
+    circuitbreaker:
+        configs:
+            default:
+                registerHealthIndicator: true
+                slidingWindowSize: 1
+                minimumNumberOfCalls: 1
+                permittedNumberOfCallsInHalfOpenState: 3
+                automaticTransitionFromOpenToHalfOpenEnabled: true
+                waitDurationInOpenState: 10s
+                failureRateThreshold: 50
+                eventConsumerBufferSize: 10
+                recordExceptions:
+                    - org.springframework.web.client.HttpServerErrorException
+                    - java.util.concurrent.TimeoutException
+                    - java.io.IOException
+                    - org.springframework.web.client.ResourceAccessException
+        instances:
+            userservice:
+                baseConfig: default
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
