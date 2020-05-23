@@ -1,0 +1,1 @@
+--ALTER TABLE "USER" ALTER column email type character varying(32) ;

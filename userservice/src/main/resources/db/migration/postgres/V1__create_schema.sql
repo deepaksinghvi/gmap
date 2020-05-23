@@ -1,15 +1,18 @@
-CREATE TABLE BID  (
-bid_id BIGINT NOT NULL PRIMARY KEY,
+CREATE TABLE "user"  (
+id BIGINT NOT NULL,
+userid VARCHAR(32) NOT NULL PRIMARY KEY,
 tenant_id VARCHAR(20),
-bidstatus VARCHAR(10),
+name VARCHAR(32),
+email VARCHAR(32),
 time_created TIMESTAMP,
 time_updated TIMESTAMP,
 version INT
 );
 
-create sequence bid_seq start with 1 increment by 100;
+CREATE SEQUENCE user_id_seq;
 
-CREATE TABLE IF NOT EXISTS TENANT  (
+
+CREATE TABLE "tenant"  (
 id BIGINT NOT NULL,
 tenant_id VARCHAR(20) NOT NULL PRIMARY KEY,
 organization_name VARCHAR(30),
@@ -21,6 +24,4 @@ time_updated TIMESTAMP,
 version INT
 );
 
-create sequence tenant_seq start with 1 increment by 1;
-
-
+CREATE SEQUENCE tenant_id_seq;

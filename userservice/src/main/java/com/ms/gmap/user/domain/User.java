@@ -36,7 +36,7 @@ public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_generator")
-  @SequenceGenerator(name="user_generator", sequenceName = "user_seq", allocationSize = 100)
+  @SequenceGenerator(name="user_generator", sequenceName = "user_id_seq", allocationSize = 1)
   @Column(name = "id", unique=true, updatable = false, nullable=false, columnDefinition = "bigint")
   private Long id;
 
@@ -46,6 +46,9 @@ public class User {
 
   @Column(name = "userid", length=32)
   private String userid;
+
+  @Column(name = "name", length=32)
+  private String name;
 
   @Column(name = "email", length=32)
   private String email;

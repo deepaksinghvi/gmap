@@ -34,8 +34,8 @@ public class Tenant implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tenant_generator")
-  @SequenceGenerator(name="tenant_generator", sequenceName = "tenant_seq", allocationSize = 1)
-  @Column(name = "id", unique = true, updatable = false, nullable = false, columnDefinition = "bigint")
+  @SequenceGenerator(name="tenant_generator", sequenceName = "tenant_id_seq", allocationSize = 1)
+  @Column(name = "id", unique=true, updatable = false, nullable=false, columnDefinition = "bigint")
   private Long id;
 
   @Column(name="tenant_id", length=25, unique = true, nullable = false)

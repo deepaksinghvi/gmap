@@ -7,6 +7,8 @@ public interface TenantService {
 
   Tenant getTenant(Long id);
 
+  Tenant getTenant(String id);
+
   void deleteTenant(Long id);
 
   Tenant updateTenant(Tenant bid);

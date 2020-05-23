@@ -1,5 +1,6 @@
 # GMAP MicroServices
 
+
 Build Project
 ``` 
 mvn clean install
@@ -23,3 +24,7 @@ Use BID.postman_collection.json for trying out various request.
 2. Bid Creation (bidservice)
 3. Update Bid (bidservice)
 4. Retrive Tenant (userservice)
+
+
+# Using docker-compose
+ To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.

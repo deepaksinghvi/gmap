@@ -38,7 +38,7 @@ public class Bid implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bid_generator")
-  @SequenceGenerator(name="bid_generator", sequenceName = "bid_seq", allocationSize = 100)
+  @SequenceGenerator(name="bid_generator", sequenceName = "bid_id_seq", allocationSize = 1)
   @Column(name = "bid_id", unique=true, updatable = false, nullable=false, columnDefinition = "bigint")
   private Long id;
 

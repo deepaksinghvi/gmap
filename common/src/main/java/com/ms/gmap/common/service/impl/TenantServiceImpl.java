@@ -25,6 +25,12 @@ public class TenantServiceImpl implements TenantService {
   }
 
   @Override
+  public Tenant getTenant(String tenantId) {
+    Optional<Tenant> result = tenantRepository.findTenant(tenantId);
+    return result.isPresent()?result.get():null;
+  }
+
+  @Override
   public void deleteTenant(Long id) {
     tenantRepository.deleteById(id);
   }

@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+  docker-pg:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: gmap
+      POSTGRES_USER: gmap
+      POSTGRES_PASSWORD: gmap
+    # Where our data will be persisted
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+
+  userservice-app:
+    restart: on-failure
+    build:
+      context: userservice
+      dockerfile: Dockerfile
+    expose:
+      - "8090"
+    ports:
+      - 8090:8090
+    environment:
+      WAIT_HOSTS: postgres:5432
+    depends_on:
+      - docker-pg
+# Names our volume
+volumes:
+  db_data:

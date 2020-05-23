@@ -9,9 +9,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaAuditing
-@EnableJpaRepositories(basePackages={"com.ms.gmap.common","com.ms.gmap.bid"})
+@EnableJpaRepositories(basePackages={"com.ms.gmap.bid"})
 @EntityScan(basePackages= {"com.ms.gmap.common.domain","com.ms.gmap.bid.domain"})
-@ComponentScan(basePackages={"com.ms.gmap"})
+@ComponentScan(basePackages={"com.ms.gmap.bid"})
 public class BidServiceApplication {
 
 

@@ -1,17 +1,18 @@
-CREATE TABLE "USER"  (
+CREATE TABLE "user"  (
 id BIGINT NOT NULL,
 userid VARCHAR(32) NOT NULL PRIMARY KEY,
 tenant_id VARCHAR(20),
 name VARCHAR(32),
-email VARCHAR(10),
+email VARCHAR(32),
 time_created TIMESTAMP,
 time_updated TIMESTAMP,
 version INT
 );
 
-create sequence user_id_seq start with 1 increment by 1;
+CREATE SEQUENCE user_id_seq;
 
-CREATE TABLE "TENANT"  (
+
+CREATE TABLE "tenant"  (
 id BIGINT NOT NULL,
 tenant_id VARCHAR(20) NOT NULL PRIMARY KEY,
 organization_name VARCHAR(30),
@@ -23,4 +24,20 @@ time_updated TIMESTAMP,
 version INT
 );
 
-create sequence tenant_id_seq start with 1 increment by 1;
+CREATE SEQUENCE tenant_id_seq;
+
+
+CREATE TABLE "bid"  (
+bid_id BIGINT NOT NULL PRIMARY KEY,
+tenant_id VARCHAR(20),
+bidname VARCHAR(32),
+bidwinner VARCHAR(32),
+bidstatus VARCHAR(10),
+time_created TIMESTAMP,
+time_updated TIMESTAMP,
+version INT
+);
+
+create sequence bid_id_seq;
+
+
