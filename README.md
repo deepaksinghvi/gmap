@@ -28,3 +28,5 @@ Use BID.postman_collection.json for trying out various request.
 
 # Using docker-compose
  To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+ or just run ./build.sh
+

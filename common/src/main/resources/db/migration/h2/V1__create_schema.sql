@@ -24,3 +24,14 @@ version INT
 );
 
 create sequence tenant_id_seq start with 1 increment by 1;
+
+CREATE TABLE BID  (
+bid_id BIGINT NOT NULL PRIMARY KEY,
+tenant_id VARCHAR(20),
+bidstatus VARCHAR(10),
+time_created TIMESTAMP,
+time_updated TIMESTAMP,
+version INT
+);
+
+create sequence bid_seq start with 1 increment by 1;

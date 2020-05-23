@@ -1,12 +1,19 @@
 version: '3.3'
 services:
-  docker-pg:
+  gmapdb:
     image: postgres
+    container_name: gmapdb
     restart: always
+    #network_mode: bridge  network_mode and networks cannot be combined
+    networks:
+      - mynet
+    expose:
+      - "5432"
     environment:
       POSTGRES_DB: gmap
-      POSTGRES_USER: gmap
-      POSTGRES_PASSWORD: gmap
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST: gmapdb
     # Where our data will be persisted
     volumes:
       - db_data:/var/lib/postgresql/data/
@@ -16,17 +23,28 @@ services:
 
   userservice-app:
     restart: on-failure
+    container_name: userservice
+    networks:
+      - mynet
     build:
       context: userservice
       dockerfile: Dockerfile
     expose:
-      - "8090"
+      - "8080"
     ports:
-      - 8090:8090
+      - 8080:8080
     environment:
-      WAIT_HOSTS: postgres:5432
+      POSTGRES_HOST: gmapdb:5432
+      SPRING_DATASOURCE_URL: jdbc:postgresql://gmapdb:5432/gmap
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
     depends_on:
-      - docker-pg
+      - gmapdb
+
+    #links:
+     # - docker-pg
 # Names our volume
 volumes:
   db_data:
+networks:
+  mynet:
