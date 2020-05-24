@@ -57,7 +57,7 @@ public class BidController {
     try {
       // not sending tenant to call tenant api and get the tenant from the api call from userservice.
       if(null == bidDto.getTenant().getRealm()) {
-        RetryConfig config = RetryConfig.custom().maxAttempts(3).waitDuration(Duration.ofMillis(3000))
+       RetryConfig config = RetryConfig.custom().maxAttempts(3).waitDuration(Duration.ofMillis(3000))
             .retryOnResult(response -> response.equals(null))
             .retryOnException(e -> e instanceof Exception).build();
         RetryRegistry registry = RetryRegistry.of(config);
@@ -65,6 +65,7 @@ public class BidController {
         Retry retry = registry.retry(BID_SERVICE);
         retry.executeSupplier(supplier);
         TenantDto tenantDto = supplier.get();
+        //TenantDto tenantDto = getTenantDTO(bidDto);
         log.info("tenantDto: {}",tenantDto);
         bidDto.setTenant(tenantDto);
       }

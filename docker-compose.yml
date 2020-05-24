@@ -41,8 +41,27 @@ services:
     depends_on:
       - gmapdb
 
-    #links:
-     # - docker-pg
+
+  bidservice-app:
+    restart: on-failure
+    container_name: bidservice
+    networks:
+      - mynet
+    build:
+      context: bidservice
+      dockerfile: Dockerfile
+    expose:
+      - "8081"
+    ports:
+      - 8081:8081
+    environment:
+      POSTGRES_HOST: gmapdb:5432
+      SPRING_DATASOURCE_URL: jdbc:postgresql://gmapdb:5432/gmap
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      - gmapdb
+      - "userservice-app"
 # Names our volume
 volumes:
   db_data:

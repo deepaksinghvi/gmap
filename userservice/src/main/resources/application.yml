@@ -88,9 +88,6 @@ spring:
             non_contextual_creation: true
         order_inserts: true
     show-sql: true
-gmap:
-  bidservice:
-    url: http://localhost:8081/bidservice
 ---
 spring:
   profiles: postgres
@@ -117,3 +114,7 @@ spring:
             non_contextual_creation: true
         order_inserts: true
     show-sql: true
+# overriding only for postgres profile which is assumed to be run only in container, profile h2 is for local development
+gmap:
+  bidservice:
+    url: http://bidservice:8081/bidservice
