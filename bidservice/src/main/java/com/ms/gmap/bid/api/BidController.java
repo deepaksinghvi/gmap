@@ -57,15 +57,21 @@ public class BidController {
     try {
       // not sending tenant to call tenant api and get the tenant from the api call from userservice.
       if(null == bidDto.getTenant().getRealm()) {
-       RetryConfig config = RetryConfig.custom().maxAttempts(3).waitDuration(Duration.ofMillis(3000))
+
+        /*
+        From the documentation of Resilience4j
+        The Resilience4j Aspects order is following:
+        Retry ( CircuitBreaker ( RateLimiter ( TimeLimiter ( Bulkhead ( Function ) ) ) ) ) so Retry is applied at the end (if needed).
+        If you need a different order, you must use the functional chaining style instead of the Spring annotations style.
+        So instead of using Resilience4j of springboot, using the functional execution of retry method.
+         */
+        RetryConfig config = RetryConfig.custom().maxAttempts(3).waitDuration(Duration.ofSeconds(10))
             .retryOnResult(response -> response.equals(null))
             .retryOnException(e -> e instanceof Exception).build();
         RetryRegistry registry = RetryRegistry.of(config);
         Supplier<TenantDto> supplier = () -> this.getTenantDTO(bidDto);
         Retry retry = registry.retry(BID_SERVICE);
-        retry.executeSupplier(supplier);
-        TenantDto tenantDto = supplier.get();
-        //TenantDto tenantDto = getTenantDTO(bidDto);
+        TenantDto tenantDto = retry.executeSupplier(supplier);
         log.info("tenantDto: {}",tenantDto);
         bidDto.setTenant(tenantDto);
       }

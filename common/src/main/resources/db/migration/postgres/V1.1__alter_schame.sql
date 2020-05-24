@@ -1,1 +1,2 @@
 --ALTER TABLE "USER" ALTER column email type character varying(32) ;
+-- TODO Would add alter scripts later, for now added as part of V1__create_schema.sql

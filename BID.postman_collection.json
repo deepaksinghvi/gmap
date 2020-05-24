@@ -26,13 +26,13 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"bidstatus\": \"new\", \"bidname\":\"bid1\",\"tenant\": { \"id\": 1, \"locked\": false, \"organizationName\": \"Org1\", \"realm\": \"realm1\", \"tenantConfig\": \"\", \"tenantId\": \"tenant1\" }}"
+					"raw": "{ \"bidstatus\": \"new\", \"bidname\":\"bid1\",\"tenant\": { \"tenantId\": \"tenant1\" }}"
 				},
 				"description": "Bid Creation"
 			},
 			"response": [
 				{
-					"id": "a2eb50a5-367a-4cce-892d-64865250be4d",
+					"id": "19984bad-d529-41fb-9c00-3c618d0c446f",
 					"name": "Bid Creation",
 					"originalRequest": {
 						"url": "http://localhost:8080/bidservice/bid",
@@ -99,7 +99,7 @@
 		{
 			"name": "Teanant Creation",
 			"request": {
-				"url": "http://localhost:8081/bidservice/tenant",
+				"url": "http://localhost:8080/userservice/tenant",
 				"method": "POST",
 				"header": [
 					{
@@ -166,7 +166,7 @@
 			},
 			"response": [
 				{
-					"id": "98ec565e-cad2-4b13-a853-41ce5c7862a0",
+					"id": "2701a297-57d9-4c78-bc21-b4af689e4aed",
 					"name": "Update Bid",
 					"originalRequest": {
 						"url": "http://localhost:8080/bidservice/bid",
@@ -249,7 +249,7 @@
 			},
 			"response": [
 				{
-					"id": "6229b80e-1a47-4aea-ae2c-e5f970061c48",
+					"id": "d7d6950f-5234-4543-8764-8877e94104f3",
 					"name": "Retrive Tenant",
 					"originalRequest": {
 						"url": "http://localhost:8080/userservice/user/tenant/1",
@@ -314,7 +314,7 @@
 			},
 			"response": [
 				{
-					"id": "f1412e6d-78b0-4393-877c-71d64c9721e2",
+					"id": "04786179-4574-48d9-8578-38436a1ee67e",
 					"name": "Retrive Bid",
 					"originalRequest": {
 						"url": "http://localhost:8081/bidservice/bid/1",
@@ -361,6 +361,85 @@
 					"body": "{\"id\":1,\"tenant\":{\"id\":1,\"tenantId\":\"tenant1\",\"organizationName\":\"Org1\",\"realm\":\"realm1\",\"tenantConfig\":\"\",\"locked\":false},\"bidstatus\":\"won1\",\"bidname\":\"bid1\",\"bidwinner\":\"Deepak\"}"
 				}
 			]
+		},
+		{
+			"name": "User Creation",
+			"request": {
+				"url": "http://localhost:8080/userservice/user",
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*",
+						"description": ""
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache",
+						"description": ""
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "postman-token",
+						"value": "d456f52b-f23c-ebe2-e00e-c522f66e46cb",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userid\":\"deepaksinghvi\",\"name\":\"Deepak Singhvi\",\"email\":\"deepak.singhvi@gmail.com\",\"tenant\": { \"id\": 1, \"locked\": false, \"organizationName\": \"Org1\", \"realm\": \"realm1\", \"tenantConfig\": \"\", \"tenantId\": \"tenant1\" }}"
+				},
+				"description": "User Creation"
+			},
+			"response": []
+		},
+		{
+			"name": "circuitbreaker calls",
+			"request": {
+				"url": "http://localhost:8081/bidservice/actuator/metrics/resilience4j.circuitbreaker.calls",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "circuitbreaker calls"
+			},
+			"response": []
+		},
+		{
+			"name": "circuitbreakerevents",
+			"request": {
+				"url": "http://localhost:8081/bidservice/actuator/circuitbreakerevents",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "circuitbreakerevents"
+			},
+			"response": []
+		},
+		{
+			"name": "circuitbreaker state",
+			"request": {
+				"url": "http://localhost:8081/bidservice/actuator/metrics/resilience4j.circuitbreaker.state",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "circuitbreaker state"
+			},
+			"response": []
+		},
+		{
+			"name": "bidservice health",
+			"request": {
+				"url": "http://localhost:8081/bidservice/actuator/health",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }

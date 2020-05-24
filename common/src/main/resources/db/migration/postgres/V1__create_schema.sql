@@ -41,3 +41,4 @@ version INT
 create sequence bid_id_seq;
 
 
+-- TODO proper sequencing to be added later
